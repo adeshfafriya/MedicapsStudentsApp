@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/details_page"
+    tools:context=".StudentDetailsActivity">
+
+    <RelativeLayout
+        android:id="@+id/relativeInner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/textfield"
+        android:paddingLeft="10dp"
+        android:paddingTop="30dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="30dp">
+
+        <TextView
+            android:id="@+id/textViewName"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:padding="4dp"
+            android:text="Name:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editTextName"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="6dp"
+            android:textSize="20sp"
+            android:inputType="textCapWords"
+            android:layout_toRightOf="@id/textViewName"
+            android:background="@drawable/textfield"
+            android:hint="Enter Full Name"
+            android:padding="5dp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/textViewEnrollment"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/editTextName"
+            android:layout_marginTop="24dp"
+            android:padding="4dp"
+            android:text="E. No.:"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/editTextEnrollment"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editTextName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="24dp"
+            android:textSize="20sp"
+            android:layout_toRightOf="@id/textViewEnrollment"
+            android:background="@drawable/textfield"
+            android:hint="Enter Enrollment No."
+            android:padding="5dp"
+            android:textAlignment="center" />
+
+
+        <TextView
+            android:id="@+id/textViewFaculty"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/textViewEnrollment"
+            android:layout_marginTop="24dp"
+            android:padding="4dp"
+            android:text="Faculty:"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinnerFaculty"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/editTextEnrollment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="24dp"
+            android:layout_toRightOf="@id/textViewFaculty"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textStyle="bold">
+
+        </Spinner>
+
+        <TextView
+            android:id="@+id/textViewDepartment"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/textViewFaculty"
+            android:layout_marginTop="24dp"
+            android:padding="5dp"
+            android:text="Department:"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinnerDepartment"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/spinnerFaculty"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="24dp"
+            android:layout_toRightOf="@id/textViewFaculty"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textStyle="bold|italic">
+
+        </Spinner>
+
+        <TextView
+            android:id="@+id/textViewSection"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/textViewYearGrad"
+            android:layout_marginTop="24dp"
+            android:padding="5dp"
+            android:text="Section"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinnerSection"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/spinnerYearGrad"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="24dp"
+            android:layout_toRightOf="@id/textViewFaculty"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold|italic">
+
+        </Spinner>
+
+        <TextView
+            android:id="@+id/textViewYearGrad"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/spinnerDepartment"
+            android:layout_marginTop="24dp"
+            android:padding="5dp"
+            android:text="Year of Grad.:"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinnerYearGrad"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/spinnerDepartment"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="24dp"
+            android:layout_toRightOf="@id/textViewYearGrad"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </Spinner>
+
+        <TextView
+            android:id="@+id/textViewYearGender"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/spinnerSection"
+            android:layout_marginTop="24dp"
+            android:padding="5dp"
+            android:text="Gender:"
+            android:textSize="20sp" />
+        <Spinner
+            android:id="@+id/SpinnerGender"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/spinnerSection"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="24dp"
+            android:layout_toRightOf="@id/textViewYearGender"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </Spinner>
+
+
+        <TextView
+            android:id="@+id/textViewBus"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/SpinnerGender"
+            android:layout_marginTop="24dp"
+            android:padding="5dp"
+            android:text="Bus Facility:"
+            android:textSize="20sp" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupBus"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/SpinnerGender"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="24dp"
+            android:layout_toRightOf="@+id/textViewBus"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <RadioButton
+                android:id="@+id/radioBusYes"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:text="Yes"
+                android:onClick="onRadioButtonClicked"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:id="@+id/radioBusNo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:text="No"
+                android:onClick="onRadioButtonClicked"
+                android:textSize="20sp" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textViewBusNo"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@+id/radioGroupBus"
+            android:layout_marginTop="24dp"
+            android:padding="5dp"
+            android:text="Bus Stop:"
+            android:textSize="20sp" />
+
+        <Spinner
+            android:id="@+id/spinnerBusStop"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/radioGroupBus"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="24dp"
+            android:layout_toRightOf="@id/textViewBusNo"
+            android:lines="1"
+            android:textAlignment="center"
+            android:textSize="20sp">
+
+        </Spinner>
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/spinnerBusStop"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/login"
+            android:lines="1"
+            android:padding="12dp"
+            android:text="Submit"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
+</ScrollView>

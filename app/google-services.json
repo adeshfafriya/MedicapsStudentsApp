@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "301036318083",
+    "firebase_url": "https://medicapsapp-6b8a5.firebaseio.com",
+    "project_id": "medicapsapp-6b8a5",
+    "storage_bucket": "medicapsapp-6b8a5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:301036318083:android:7bd4657570066c99",
+        "android_client_info": {
+          "package_name": "in.ac.medicaps.medicapsstudentsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "301036318083-o597v1hhths6javm6rrmm8i5a513382d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.ac.medicaps.medicapsstudentsapp",
+            "certificate_hash": "49d16aa9409beaaed522d1a61c50977efa2716c6"
+          }
+        },
+        {
+          "client_id": "301036318083-ov23igkkhdpk7442hr6ek5p037qdbuo9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK9MY069jhOUOkGVHMN68daxxJlL2U-Yk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "301036318083-ov23igkkhdpk7442hr6ek5p037qdbuo9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
