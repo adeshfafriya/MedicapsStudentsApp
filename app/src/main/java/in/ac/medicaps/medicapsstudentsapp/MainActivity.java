@@ -6,6 +6,7 @@ import android.service.autofill.UserData;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -111,6 +112,19 @@ public class MainActivity extends AppCompatActivity
                     intent.putExtra("userName", userName);
                     startActivity(intent);
 
+                }
+                else if (!(dataSnapshot.hasChild("registeredCourses"))){
+                    final String mFaculty, mDepartment, mYearOfGrad;
+                    mFaculty = dataSnapshot.child("faculty").getValue(String.class);
+                    mDepartment = dataSnapshot.child("department").getValue(String.class);
+                    mYearOfGrad = dataSnapshot.child("yearOfGrad").getValue(String.class);
+
+                    Intent intent  = new Intent(MainActivity.this, CourseRegisterActivity.class);
+                    intent.putExtra("userName", userName);
+                    intent.putExtra("faculty", mFaculty);
+                    intent.putExtra("department", mDepartment);
+                    intent.putExtra("yearOfGrad", mYearOfGrad);
+                    startActivity(intent);
                 }
             }
 

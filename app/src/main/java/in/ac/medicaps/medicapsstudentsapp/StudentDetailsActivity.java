@@ -1,5 +1,6 @@
 package in.ac.medicaps.medicapsstudentsapp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -29,12 +31,14 @@ public class StudentDetailsActivity extends AppCompatActivity {
     private FirebaseDatabase mFirebaseDatabase;
     private DatabaseReference mRootDatabaseReference;
     private DatabaseReference facultyDatabaseReference;
-    private String mGender, mFaculty, mDepartment, mSection, mYearOfGrad, mBus, mBusStop;
+    private String mGender, mFaculty, mDepartment, mSection, mYearOfGrad, mBus, mBusStop, mName, mEnrollment;
     private EditText nameEditTextView, enrollmentEditTextView;
     private Spinner facultySpinner, departmentSpinner,sectionSpinner, yearOfGradSpinner, genderSpinner, busStopSpinner;
     private RadioGroup radioGroupBus;
     private FirebaseAuth mFirebaseAuth;
     private  String mUserName;
+    private Button submitButton;
+    private DatabaseReference mStudentsDatabaseReference;
     private ArrayAdapter<String> facultySpinnerAdapter, genderSpinnerAdapter, busStopSpinnerAdapter, departmentSpinnerAdapter, yearGradSpinnerAdapter,sectionSpinnerAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +46,13 @@ public class StudentDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_student_details);
         getSupportActionBar().setTitle("Details");
         Log.e("Count", "at the start of activity");
+        mBus = ""; mGender = ""; mFaculty = ""; mDepartment = ""; mSection = ""; mYearOfGrad = ""; mBusStop = "None";
         mUserName = getIntent().getStringExtra("userName");
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mRootDatabaseReference = mFirebaseDatabase.getReference();
         mFirebaseAuth = FirebaseAuth.getInstance();
         facultyDatabaseReference = mFirebaseDatabase.getReference().child("faculty");
+        mStudentsDatabaseReference = mFirebaseDatabase.getReference().child("users").child("students");
         nameEditTextView = findViewById(R.id.editTextName);
         enrollmentEditTextView = findViewById(R.id.editTextEnrollment);
         facultySpinner = findViewById(R.id.spinnerFaculty);
@@ -56,8 +62,9 @@ public class StudentDetailsActivity extends AppCompatActivity {
         genderSpinner = findViewById(R.id.SpinnerGender);
         busStopSpinner = findViewById(R.id.spinnerBusStop);
         radioGroupBus = findViewById(R.id.radioGroupBus);
+        submitButton = findViewById(R.id.submitButton);
         busStopSpinner.setEnabled(false);
-        FirebaseUser user = mFirebaseAuth.getCurrentUser();
+        final FirebaseUser user = mFirebaseAuth.getCurrentUser();
         nameEditTextView.setText(user.getDisplayName());
         final ArrayList<String> faculties = new ArrayList<String>();
         facultyDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -120,6 +127,39 @@ public class StudentDetailsActivity extends AppCompatActivity {
             }
         });
 
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (nameEditTextView.getText().toString().isEmpty()||enrollmentEditTextView.getText().toString().isEmpty()||(mFaculty.isEmpty())||(mDepartment.isEmpty())||(mYearOfGrad.isEmpty())||(mSection.isEmpty())||(mGender.isEmpty())||(mBus.isEmpty())){
+
+                    Toast.makeText(StudentDetailsActivity.this, "Please Enter all details", Toast.LENGTH_LONG).show();
+                }else if (mBus.equals("yes")&&mBusStop.equals("None")){
+                    Toast.makeText(StudentDetailsActivity.this, "Please Enter all details", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    mStudentsDatabaseReference.child(mUserName).child("busFacility").setValue(mBus);
+                    mStudentsDatabaseReference.child(mUserName).child("busStop").setValue(mBusStop);
+                    mStudentsDatabaseReference.child(mUserName).child("department").setValue(mDepartment);
+                    mStudentsDatabaseReference.child(mUserName).child("enrollmentNumber").setValue(enrollmentEditTextView.getText().toString());
+                    mStudentsDatabaseReference.child(mUserName).child("email").setValue(user.getEmail());
+                    mStudentsDatabaseReference.child(mUserName).child("faculty").setValue(mFaculty);
+                    mStudentsDatabaseReference.child(mUserName).child("gender").setValue(mGender);
+                    mStudentsDatabaseReference.child(mUserName).child("section").setValue(mSection);
+                    mStudentsDatabaseReference.child(mUserName).child("yearOfGrad").setValue(mYearOfGrad);
+                    mStudentsDatabaseReference.child(mUserName).child("name").setValue(nameEditTextView.getText().toString().trim());
+
+
+                    Intent intent = new Intent(StudentDetailsActivity.this, CourseRegisterActivity.class);
+                    intent.putExtra("userName", mUserName);
+                    intent.putExtra("faculty", mFaculty);
+                    intent.putExtra("department", mDepartment);
+                    intent.putExtra("yearOfGrad", mYearOfGrad);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        });
+
     }
 
     public void onRadioButtonClicked(View view) {
@@ -136,7 +176,7 @@ public class StudentDetailsActivity extends AppCompatActivity {
             case R.id.radioBusNo:
                 if (checked){
                     mBus = "no";
-                    mBusStop = "";
+                    mBusStop = "None";
                     busStopSpinner.setEnabled(false);
                     break;}
         }
@@ -186,12 +226,12 @@ public class StudentDetailsActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        facultySpinnerAdapter.clear();
+        /*facultySpinnerAdapter.clear();
         departmentSpinnerAdapter.clear();
         yearGradSpinnerAdapter.clear();
         sectionSpinnerAdapter.clear();
         genderSpinnerAdapter.clear();
-        busStopSpinnerAdapter.clear();
+        busStopSpinnerAdapter.clear();*/
     }
 
     private void SetUpDepartmentSpinner() {
