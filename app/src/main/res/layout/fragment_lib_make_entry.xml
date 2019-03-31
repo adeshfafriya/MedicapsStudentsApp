@@ -7,6 +7,13 @@ xmlns:tools="http://schemas.android.com/tools"
 android:background="@android:color/white"
 tools:context=".lib_tab1">
 
+
+    <include
+        layout="@layout/activity_library_assistant"
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:layout_weight="1" />
+
 <LinearLayout
     android:gravity="center"
     android:layout_width="match_parent"
@@ -21,7 +28,7 @@ tools:context=".lib_tab1">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:textAppearance="?android:textAppearanceMedium"
+        android:textAppearance="?android:textAppearanceLarge"
         android:textColor="#FF8F00"
         android:layout_weight="1"
         android:textAlignment="textEnd"
@@ -32,10 +39,10 @@ tools:context=".lib_tab1">
         android:text="Book Entry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_padding="5dp"
         android:background="@drawable/border"
         android:textColor="@android:color/black"
-        android:textAppearance="?android:textAppearanceMedium"
+        android:textAppearance="?android:textAppearanceLarge"
         android:layout_weight="1"
         />
 
@@ -124,6 +131,38 @@ tools:context=".lib_tab1">
         android:buttonTint="@android:color/black"
 
         />
+
+    <TextView
+        android:text="Set Alarm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="#FF8F00"
+
+        />
+
+    <Button
+        android:id="@+id/btnAlarmDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Click to Select Alarm Date"
+        android:textColor="#9E9E9E"
+        android:background="@android:color/white"/>
+
+    <Button
+        android:id="@+id/btnAlarmTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Click to Select Alarm Time"
+        android:textColor="#9E9E9E"
+        android:background="@android:color/white"/>
 
     <Button
         android:text="Save"
