@@ -1,0 +1,116 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@android:color/white"
+    tools:context=".lib_tab1">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        >
+
+        <TextView
+            android:text="Select Record Type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="#FF8F00"
+            android:layout_weight="1"
+
+            />
+
+        <TextView
+            android:text="Book Entry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/border"
+            android:textColor="@android:color/black"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_weight="1"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:background="@drawable/border"
+        android:layout_weight="2"
+        >
+
+        <EditText
+            android:text="Enter Book Name"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/edittext1"
+            android:ems="1000000"
+            android:inputType="text"
+            android:gravity="center"
+            android:textColor="#9E9E9E"
+            />
+
+        <EditText
+            android:text="Enter Book No."
+            android:layout_margin="5dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/edittext2"
+            android:ems="1000000"
+            android:inputType="text"
+            android:gravity="center"
+            android:textColor="#9E9E9E"
+            />
+
+
+        <Button
+            android:id="@+id/btnDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="Select Issue Date"
+            android:textColor="#9E9E9E"
+            android:background="@android:color/white"/>
+
+
+        <CheckBox
+            android:text="Remind me to Return"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:buttonTint="@android:color/black"
+
+            />
+
+        <Button
+            android:text="Save"
+            android:layout_width="wrap_content"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/SaveButton"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
