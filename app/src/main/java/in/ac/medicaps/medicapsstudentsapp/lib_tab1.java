@@ -40,8 +40,13 @@ public class lib_tab1 extends AppCompatActivity {
     int day_x;
     Calendar calendar;
 
-//    Below variables are for time picker
-    EditText choose;
+    EditText choose_date;
+    int year_y;
+    int month_y;
+    int day_y;
+
+    //    Below variables are for time picker
+    EditText choose_time;
     TimePickerDialog PickerDialog;
     int currentHour;
     int currentMinute;
@@ -54,7 +59,7 @@ public class lib_tab1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_lib_make_entry);
 
-//below setting are for datepicker
+//below setting are for datepicker (btn and hidden textview method)
 
         btn = findViewById(R.id.btnDate);
         date = findViewById(R.id.tvSelectedDate);
@@ -69,17 +74,38 @@ public class lib_tab1 extends AppCompatActivity {
                 datePicker = new DatePickerDialog(lib_tab1.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(android.widget.DatePicker datePicker, int year, int month, int day) {
-                        date.setText("do");
+                        date.setText(day + "/" + (month+1) + "/" + year);
                     }
                 }, year_x, month_x, day_x);
                 datePicker.show();
             }
         });
 
-//        Below Settings are for Timepicker
+        //below setting are for datepicker for alarm (Textedit method)
 
-        choose = findViewById(R.id.AlarmTime);
-        choose.setOnClickListener(new View.OnClickListener() {
+        choose_date = findViewById(R.id.AlarmDate);
+
+        choose_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calendar = Calendar.getInstance();
+                year_y = calendar.get(Calendar.YEAR);
+                month_y = calendar.get(Calendar.MONTH);
+                day_y = calendar.get(Calendar.DAY_OF_MONTH);
+                datePicker = new DatePickerDialog(lib_tab1.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(android.widget.DatePicker datePicker, int year, int month, int day) {
+                        choose_date.setText(day + "/" + (month+1) + "/" + year);
+                    }
+                }, year_y, month_y, day_y);
+                datePicker.show();
+            }
+        });
+
+//        Below Settings are for Timepicker of alarm time
+
+        choose_time = findViewById(R.id.AlarmTime);
+        choose_time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 calendar = Calendar.getInstance();
@@ -94,7 +120,7 @@ public class lib_tab1 extends AppCompatActivity {
                         } else {
                             amPm = "AM";
                         }
-                        choose.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
+                        choose_time.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
                     }
                 }, currentHour, currentMinute, false);
 
