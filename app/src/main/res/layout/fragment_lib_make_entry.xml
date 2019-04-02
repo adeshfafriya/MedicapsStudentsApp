@@ -142,27 +142,31 @@ tools:context=".lib_tab1">
 
         />
 
-    <Button
-        android:id="@+id/btnAlarmDate"
+    <EditText
+        android:id="@+id/AlarmDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="Click to Select Alarm Date"
+        android:hint="Click to Select Alarm Date"
         android:textColor="#9E9E9E"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white"
+        android:layout_margin="10dp"
+        />
 
-    <Button
-        android:id="@+id/btnAlarmTime"
+    <EditText
+        android:id="@+id/AlarmTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:textAppearance="?android:textAppearanceMedium"
-        android:text="Click to Select Alarm Time"
+        android:hint="Click to Select Alarm Time"
         android:textColor="#9E9E9E"
-        android:background="@android:color/white"/>
+        android:background="@android:color/white"
+        android:layout_margin="10dp"
+        />
 
     <Button
         android:text="Save"
