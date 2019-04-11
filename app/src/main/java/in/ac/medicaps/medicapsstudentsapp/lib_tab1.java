@@ -26,8 +26,12 @@ import android.widget.Toast;
 
 import java.sql.Time;
 import java.util.Calendar;
+import java.util.ArrayList;
 
+import android.content.Context;
 
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 public class lib_tab1 extends AppCompatActivity {
 
@@ -52,12 +56,12 @@ public class lib_tab1 extends AppCompatActivity {
     int currentMinute;
     String amPm;
 
+    public lib_tab1(){}
 
 //    below are some default codes
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_lib_make_entry);
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                         Bundle savedInstanceState) {
+    View rootView = inflater.inflate(R.layout.fragment_lib_make_entry, container, false);
 
 //below setting are for datepicker (btn and hidden textview method)
 
@@ -129,7 +133,7 @@ public class lib_tab1 extends AppCompatActivity {
         });
 
 
-
+    return rootView;
     }
 }
 

@@ -1,5 +1,6 @@
 package in.ac.medicaps.medicapsstudentsapp;
 
+
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
@@ -10,32 +11,29 @@ public class LibraryAssistant extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
-    private SectionsPagerAdapter mSectionsPageAdapter;
-
-    private ViewPager mViewPager;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_library_assistant);
-        Log.d(TAG, "onCreate: Starting.");
+        // Set the content of the activity to use the activity_main.xml layout file
+        setContentView(R.layout.activity_main);
 
-        mSectionsPageAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        // Find the view pager that will allow the user to swipe between fragments
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
 
-        // Set up the ViewPager with the sections adapter.
-        mViewPager = (ViewPager) findViewById(R.id.container);
-        setupViewPager(mViewPager);
+        // Create an adapter that knows which fragment should be shown on each page
+        CategoryAdapter adapter = new CategoryAdapter(this, getSupportFragmentManager());
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(mViewPager);
-    }
-
-    private void setupViewPager(ViewPager viewPager) {
-        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new lib_tab1());
-        adapter.addFragment(new lib_tab2());
+        // Set the adapter onto the view pager
         viewPager.setAdapter(adapter);
+
+        // Find the tab layout that shows the tabs
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
+
+        // Connect the tab layout with the view pager. This will
+        //   1. Update the tab layout when the view pager is swiped
+        //   2. Update the view pager when a tab is selected
+        //   3. Set the tab layout's tab names with the view pager's adapter's titles
+        //      by calling onPageTitle()
+        tabLayout.setupWithViewPager(viewPager);
     }
 }
-
-
