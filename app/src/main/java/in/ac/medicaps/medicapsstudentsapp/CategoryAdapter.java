@@ -30,10 +30,10 @@ public class CategoryAdapter extends FragmentPagerAdapter {
     private Context mContext;
 
     /**
-     * Create a new {@link CategoryAdapter} object.
+     * Create a new { CategoryAdapter} object.
      *
-     * @param context is the context of the app
-     * @param fm is the fragment manager that will keep each fragment's state in the adapter
+     *  context is the context of the app
+     *  fm is the fragment manager that will keep each fragment's state in the adapter
      *           across swipes.
      */
     public CategoryAdapter(Context context, FragmentManager fm) {
@@ -42,7 +42,7 @@ public class CategoryAdapter extends FragmentPagerAdapter {
     }
 
     /**
-     * Return the {@link Fragment} that should be displayed for the given page number.
+     * Return the { Fragment} that should be displayed for the given page number.
      */
     @Override
     public Fragment getItem(int position) {

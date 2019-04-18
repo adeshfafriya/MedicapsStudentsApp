@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class lib_tab2 extends AppCompatActivity {
+public class lib_tab2 extends Fragment {
 
     public lib_tab2(){}
 
